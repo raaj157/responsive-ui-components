@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindBloom Header</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <i class="fas fa-brain"></i> Mind<span>Bloom</span>
+  </div>
+
+  <div class="nav-container">
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+
+  <div class="cta-container">
+    <a href="#download" class="cta-button">Get the App</a>
+  </div>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <i class="fas fa-bars"></i>
+  </div>
+</header>
+
+<div class="mobile-overlay" id="mobile-overlay">
+  <div class="close-btn" id="close-btn">
+    <i class="fas fa-times"></i>
+  </div>
+  
+  <nav class="mobile-nav">
+    <a href="#features">Features</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="#download" class="mobile-cta">
+      <i class="fas fa-download"></i> Get the App
+    </a>
+  </nav>
+</div>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const overlay = document.getElementById('mobile-overlay');
+  const closeBtn = document.getElementById('close-btn');
+
+  toggle.addEventListener('click', () => {
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';  
+  });
+
+  closeBtn.addEventListener('click', () => {
+    overlay.classList.remove('active');
+    document.body.style.overflow = 'auto'; 
+  });
+
+ 
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      overlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+  });
+</script>
+
+</body>
+</html>
