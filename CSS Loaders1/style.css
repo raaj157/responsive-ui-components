@@ -1,0 +1,170 @@
+body {
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  margin: 0;
+}
+
+.main-container {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 40px;
+  max-width: 900px;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.main-container:hover {
+  transform: scale(1.05);
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1a202c;
+  margin-bottom: 0;
+  letter-spacing: 0.025em;
+  text-align: center;
+}
+
+.loaders-horizontal-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+}
+
+.loader-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+  flex-basis: calc(33.333% - 27px);
+  min-width: 200px;
+  text-align: center;
+}
+
+.loader-section h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.loader-section p {
+  color: #4a5568;
+  font-size: 18px;
+}
+
+/* === Loader 1: Pulsing Circle === */
+.loader-1 {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #6a0572, #8e2de2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2), 0 0 30px rgba(142, 45, 226, 0.4);
+  animation: pulse 1.8s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.7);
+    opacity: 0.6;
+  }
+}
+
+/* === Loader 2: Bouncing Dots === */
+.loader-2 {
+  display: flex;
+  gap: 12px;
+}
+
+.loader-2 div {
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(45deg, #ff8c00, #ffc107);
+  border-radius: 50%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  animation: bounce 0.8s infinite alternate cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.loader-2 div:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.loader-2 div:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-25px);
+  }
+}
+
+/* === Loader 3: Spinning Circle === */
+.loader-3 {
+  width: 60px;
+  height: 60px;
+  border: 6px solid rgba(59, 130, 246, 0.2);
+  border-top-color: #3b82f6;
+  border-bottom-color: #1d4ed8;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    padding: 20px;
+    row-gap: 30px;
+  }
+  h1 {
+    font-size: 30px;
+  }
+  .loaders-horizontal-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .loader-section {
+    flex-basis: auto;
+    min-width: unset;
+  }
+  .loader-section h2 {
+    font-size: 20px;
+  }
+  .loader-section p {
+    font-size: 16px;
+  }
+}
